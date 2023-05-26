@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: url(../../vista/login/img/asistencia-medica.jpg) no-repeat center center fixed;
+    background-color: rgb(100, 100, 100);
+    background-blend-mode: soft-light;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    padding: 20px;
+    font-size: 48px;
+    color: #e0e1dd;
+}
+
+#fecha {
+    text-align: center;
+    color: #e0e1dd;
+    font-weight: normal;
+    font-size: 30px;
+}
+
+.container {
+    width: 700px;
+    background: white;
+    padding: 20px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.acceso {
+    color: rgb(0, 89, 255);
+}
+
+.cedula {
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 30px;
+    outline: none;
+}
+
+.botones {
+    display: flex;
+    margin-top: 20px;
+}
+
+.entrada {
+    background: rgb(0, 89, 255);
+    width: 100%;
+    padding: 25px 35px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+.salida {
+    background: rgb(255, 0, 0);
+    width: 100%;
+    padding: 25px 35px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
