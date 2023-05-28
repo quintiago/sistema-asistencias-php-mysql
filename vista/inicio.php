@@ -6,6 +6,12 @@ if (empty($_SESSION['nombre']) and empty($_SESSION['apellido'])) {
 
 ?>
 
+<style>
+    ul li:nth-child(1) .activo {
+        background: rgb(11, 150, 214) !important;
+    }
+</style>
+
 <!-- primero se carga el topbar -->
 <?php require('./layout/topbar.php'); ?>
 <!-- luego se carga el sidebar -->
@@ -17,8 +23,8 @@ if (empty($_SESSION['nombre']) and empty($_SESSION['apellido'])) {
     <h4 class="text-center text-secondary">ASISTENCIA DE EMPLEADOS</h4>
 
     <?php
-
     include "../modelo/conexion.php";
+    include "../controlador/eliminarasistencia.controlador.php";
 
     $sql = $conexion->query(" SELECT
     asistencia.id_asistencia,
@@ -35,16 +41,16 @@ if (empty($_SESSION['nombre']) and empty($_SESSION['apellido'])) {
     FROM
     asistencia
     INNER JOIN empleado ON asistencia.id_empleado = empleado.id_empleado
-    INNER JOIN cargo ON empleado.cargo = cargo.id_cargo");
+    INNER JOIN cargo ON empleado.cargo = cargo.id_cargo ");
 
     ?>
 
-    <table class="table table-bordered table-hover col-12" id="example">
+    <table class="table table-bordered table-hover w-100" id="example">
         <thead>
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">EMPLEADO</th>
-                <th scope="col">C.C</th>
+                <!-- <th scope="col">C.C</th> -->
                 <th scope="col">CARGO</th>
                 <th scope="col">ENTRADA</th>
                 <th scope="col">SALIDA</th>
@@ -56,12 +62,12 @@ if (empty($_SESSION['nombre']) and empty($_SESSION['apellido'])) {
                 <tr>
                     <td><?= $datos->id_asistencia ?></td>
                     <td><?= $datos->nom_empleado . " " . $datos->apellido ?></td>
-                    <td><?= $datos->dni ?></td>
+                    <!-- <td><?= $datos->dni ?></td> -->
                     <td><?= $datos->nom_cargo ?></td>
                     <td><?= $datos->entrada ?></td>
                     <td><?= $datos->salida ?></td>
                     <td>
-                        <a href="" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                        <a href="inicio.php?id=<?= $datos->id_asistencia ?>" onclick="advertencia(event)" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></a>
                     </td>
                 </tr>
             <?php }
